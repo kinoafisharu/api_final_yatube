@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+pytest = "*"
+pytest-pythonpath = "==0.7.3"
+pytest-django = "*"
+djangorestframework = "*"
+djangorestframework-simplejwt = "*"
+Django = "==2.2.6"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
