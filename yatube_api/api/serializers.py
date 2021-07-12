@@ -5,6 +5,7 @@ from .models import Comment, Post, Follow, Group
 
 User = get_user_model()
 
+
 class PostSerializer(serializers.ModelSerializer):
     author = serializers.ReadOnlyField(source='author.username')
 

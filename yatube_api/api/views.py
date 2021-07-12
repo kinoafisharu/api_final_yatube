@@ -76,11 +76,20 @@ def follow(request):
         data.update({'user': request.user.username})
         serializer = FollowSerializer(data=data)
         if serializer.is_valid():
-            if Follow.objects.filter(user=request.user, following__username=data.get('following')).count():
-                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            if Follow.objects.filter(
+                    user=request.user,
+                    following__username=data.get('following')
+            ).count():
+                return Response(
+                    serializer.errors,
+                    status=status.HTTP_400_BAD_REQUEST
+                )
 
             if data.get('following') == request.user.username:
-                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+                return Response(
+                    serializer.errors,
+                    status=status.HTTP_400_BAD_REQUEST
+                )
 
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
