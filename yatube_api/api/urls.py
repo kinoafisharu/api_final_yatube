@@ -16,6 +16,8 @@ router.register(
     basename='comments')
 
 urlpatterns = [
+    path('', include(router.urls)),
+
     # Djoser создаст набор необходимых эндпоинтов.
     # базовые, для управления пользователями в Django:
     path('auth/', include('djoser.urls')),
@@ -23,5 +25,5 @@ urlpatterns = [
     path('auth/', include('djoser.urls.jwt')),
 
     path('follow/', views.follow),
-    path('group/', views.group)
-] + router.urls
+    path('group/', views.group),
+]

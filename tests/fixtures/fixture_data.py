@@ -4,13 +4,13 @@ import pytest
 @pytest.fixture
 def group_1():
     from api.models import Group
-    return Group.objects.create(title='Группа 1', slug='group1')
+    return Group.objects.create(title='Группа 1')
 
 
 @pytest.fixture
 def group_2():
     from api.models import Group
-    return Group.objects.create(title='Группа 2', slug='group2')
+    return Group.objects.create(title='Группа 2')
 
 
 @pytest.fixture
