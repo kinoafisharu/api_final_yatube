@@ -8,7 +8,8 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from .models import Post, Comment, Follow, Group
-from .serializers import CommentSerializer, PostSerializer, FollowSerializer, GroupSerializer
+from .serializers import CommentSerializer, PostSerializer, \
+    FollowSerializer, GroupSerializer
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -71,6 +72,7 @@ def follow(request):
     follows = Follow.objects.filter(following=request.user.id)
     serializer = FollowSerializer(follows, many=True)
     return Response(serializer.data)
+
 
 @api_view(['GET', 'POST'])
 @permission_classes([])
